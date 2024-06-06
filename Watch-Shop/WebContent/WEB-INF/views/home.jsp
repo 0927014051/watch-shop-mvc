@@ -552,7 +552,7 @@
 			}
 			const form = document.createElement('form');
 			form.method = 'POST';
-			form.action = '/WATCHSHOP/account/buyitem.htm';
+			form.action = '/Watch-Shop/account/buyitem.htm';
 			const item_detail_ids_input = document.createElement('input');
 			item_detail_ids_input.setAttribute('name', 'item_detail_id');
 			item_detail_ids_input.setAttribute('value', item_detail_ids);

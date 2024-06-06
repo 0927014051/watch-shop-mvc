@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ptithcm.controller.UserController;
 import ptithcm.entity.users;
-import ptithcm.security.PasswordEncoderUtil;
 import ptithcm.entity.customer;
 import ptithcm.serviceimpl.userserviceimpl;
 import ptithcm.serviceimpl.brandserviceimpl;
@@ -68,11 +67,7 @@ public class customeradmincontroller {
 			model.addAttribute("count", customerserviceimpl.getCustomerCount());
 		}
 		List<users> users = accountServiceImpl.dsUser();
-		for(users list:users) {
-			 String encodedPassword = PasswordEncoderUtil.encodePassword(list.getPassword());
-			 list.setPassword(encodedPassword);
-			 System.out.println(list.getPassword());
-		}
+
 			model.addAttribute("userLogin", UserController.getUser());
 			model.addAttribute("total_staff", customerserviceimpl.getCustomerCount());
 			model.addAttribute("customerList", customerserviceimpl.dsCustomer());

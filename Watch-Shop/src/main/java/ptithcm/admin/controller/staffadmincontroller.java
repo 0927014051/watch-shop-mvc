@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ptithcm.controller.UserController;
 import ptithcm.entity.staffs;
 import ptithcm.entity.users;
-import ptithcm.security.PasswordEncoderUtil;
 import ptithcm.serviceimpl.brandserviceimpl;
 import ptithcm.serviceimpl.categoryserviceimpl;
 import ptithcm.serviceimpl.staffserviceimpl;
@@ -65,11 +64,7 @@ public class staffadmincontroller {
 
 		List<users> users = accountServiceImpl.dsUserByRole();
 		model.addAttribute("users", users);
-		for (users list : users) {
-			String encodedPassword = PasswordEncoderUtil.encodePassword(list.getPassword());
-			list.setPassword(encodedPassword);
-			System.out.println(list.getPassword());
-		}
+		
 		ss.setAttribute("check_role", UserController.getUser().getRole_id());
 		model.addAttribute("userLogin", UserController.getUser());
 		model.addAttribute("total_staff", staffserviceimpl.getStaffCount());
